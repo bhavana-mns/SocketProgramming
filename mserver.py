@@ -7,15 +7,7 @@ import pickle
 import psycopg2
 import json
 #import sqlite3
-'''
-#Miultithreaded python server: TCP Server Socket THread Pool
 
-TotSeats = 5
-AvailSeats = 5
-Booked = [0,0,0,0,0]
-#if(data<AvailSeats):
-			#	AvailSeats-=data
-			'''
 
 TicPrice = 1000
 
@@ -99,10 +91,7 @@ class ClientThread(Thread):
 					print"Data Updated"
 				else:
 					print"Seats Not available , TRY AGAIN"
-				'''
-				conn.send(str(AvailSeats))
-				Booked_Matrix  = pickle.dumps(Booked)
-				conn.send(Booked_Matrix)'''
+				
 
 			elif(choice=="2"):
 				'''conn.send(str(AvailSeats))
@@ -191,7 +180,3 @@ for t in threads:
 	t.join
 
 
-#Solutions to Prob
-#getidT1 -> close T1
-
-#select system call  
