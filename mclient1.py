@@ -1,29 +1,4 @@
 #python tcp client A
-'''import numpy
-
-TotSeats = 5
-AvailSeats = 5 
-Booked = numpy.zeros((8,5))
-heading = ["A","B","C","D","E"]
-
-print("Bus reservation services server .......")
-print("No of Seats Available are ", AvailSeats)
-print "   ", 
-for i in range(0 , 5):
-	print heading[i]," ",
-
-print()
-
-for i in range(0 , 8):
-	print i+1 , " ",
-	for j in range(0,5):
-		if(Booked[i][j] == 0):
-			print "A"+"  " ,
-		else :
-			print "R"+"  ",
-	print
-
-'''
 
 import socket
 import pickle
@@ -34,7 +9,6 @@ import json
 TicPrice = 1000
 
 heading = ["A","B","C","D","E"]
-#TotSeats = 40
 SeatAvail = 40 
 Booked = numpy.zeros((8,5))
 Booked_Matrix = numpy.zeros((8,5))
@@ -116,27 +90,10 @@ def User_Data(s):
 		SeatAvail = SeatAvail - 1;
 		ticketDisplay(name , age , s_no , price)
 	print "Data Updated"
-'''	global SeatAvail
-	global Booked_Matrix
-	global Booked
 
-	SeatAvail=tcpClientA.recv(BUFFER_SIZE)
-	SeatAvail = int(SeatAvail)
-	Booked = tcpClientA.recv(BUFFER_SIZE)
-	Booked_Matrix  =  pickle.loads(Booked)
-'''
 	
 	
-'''SeatAvail=tcpClientA.recv(BUFFER_SIZE)
-	SeatAvail = int(SeatAvail)
-	Booked = tcpClientA.recv(BUFFER_SIZE)
-	Booked_Matrix  =  pickle.loads(Booked)
 
-	print SeatAvail
-	print Booked_Matrix
-
-	DisplaySeats()
-'''
 
 def CancellTicket():
 	DisplaySeats()
@@ -151,19 +108,7 @@ def CancellTicket():
 	print "Cancellation Succesfull"
 	print"*****************************************"
 	print"*****************************************"
-'''
-	c_no = ord(SNum[0]) - 65
-	r_no = int(SNum[1])
-	r_no = r_no -1
-	Booked_Matrix[r_no][c_no] = 0
-	SeatAvail = SeatAvail + 1;
-	'''
-	
-	
-'''def refundAmount(name , s_no):
-	print"Details",details
-	print"Refunded"
-'''
+
 def history():
 	email =raw_input("Enter your  Email ID:")	
 	#tcpClientA.send(email)
@@ -245,39 +190,3 @@ while(flag):
 
 
 tcpClientA.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-#python tcp client A
-import socket
-
-host=socket.gethostname()
-port=2004
-BUFFER_SIZE=2000
-MESSAGE=raw_input("tcpClientA: enter mesggage/enter exit:")
-tcpClientA=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-tcpClientA.connect((host,port))
-while MESSAGE!='exit':
-	tcpClientA.send(MESSAGE)
-	data=tcpClientA.recv(BUFFER_SIZE)
-	print " client1 received data", data
-	MESSAGE=raw_input("tcpClientA: Enter msg to continue / enter exit:")
-
-tcpClientA.close()
-'''
-
-
-
-
